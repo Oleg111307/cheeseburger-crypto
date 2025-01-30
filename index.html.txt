@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheeseburger Countdown</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+        }
+        #countdown {
+            font-size: 2em;
+            margin-top: 20px;
+            color: #ff4500;
+        }
+        .telegram-link {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .welcome-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            display: inline-block;
+            text-align: left;
+            max-width: 400px;
+        }
+        .welcome-card h2 {
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cheeseburger is Coming! 🍔⏳</h1>
+    <img src="photo_2025-01-29_16-37-39.jpg" alt="Cheeseburger">
+    <h2>Time until launch to the Moon! 🚀🌕</h2>
+    <div id="countdown"></div>
+    
+    <div class="welcome-card">
+        <h2>Welcome to the Cheeseburger Family! 🍔❤️</h2>
+        <p>We are more than just a community; we are a movement of cheeseburger lovers who are taking our passion to the moon! 🚀</p>
+        <p>Join us in this delicious journey, get your hands on our exclusive coin, and become part of the tastiest revolution in crypto! 🍔💰</p>
+        <p>Don't wait—become a part of history today!</p>
+        <p><strong>Let's launch our cheeseburger to the moon together! 🚀🔥 United, we are strong, and we will succeed! 💪🍔</strong></p>
+    </div>
+    
+    <div class="telegram-link">
+        <p>Join our Telegram chat: <a href="https://t.me/CheessBurgerr" target="_blank">@CheessBurgerr</a></p>
+    </div>
+
+    <script>
+        function startCountdown(durationInHours) {
+            let countdownElement = document.getElementById("countdown");
+            let targetTime = new Date().getTime() + durationInHours * 60 * 60 * 1000;
+
+            function updateCountdown() {
+                let now = new Date().getTime();
+                let remainingTime = targetTime - now;
+
+                let days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
+                let minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
+                let seconds = Math.floor((remainingTime / 1000) % 60);
+
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                if (remainingTime > 0) {
+                    requestAnimationFrame(updateCountdown);
+                } else {
+                    countdownElement.innerHTML = "We have landed! 🍔🌕🚀";
+                }
+            }
+            updateCountdown();
+        }
+
+        startCountdown(168);
+    </script>
+</body>
+</html>
